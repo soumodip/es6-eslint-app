@@ -1,0 +1,35 @@
+{
+  "name": "es6-eslint-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "author": "Soumodip Paul <soumodip@creatomojo.com>",
+  "scripts": {
+    "dev": "nodemon --exec babel-node server.js",
+    "clean": "rm -rf build && mkdir build",
+    "build": "babel ./server.js -d build",
+    "start": "cross-env NODE_ENV=production npm run clean && npm run build && pm2 start build --name es6-eslint-app",
+    "restart": "cross-env NODE_ENV=production npm run clean && npm run build && pm2 restart es6-eslint-app",
+    "lint:fix": "eslint --ignore-path .gitignore . --fix"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.2",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0"
+  }
+}
